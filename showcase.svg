@@ -1,0 +1,416 @@
+<svg fill="none" viewBox="0 0 1000 650" width="1000" height="650" xmlns="http://www.w3.org/2000/svg">
+  <foreignObject width="100%" height="100%">
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&amp;family=Inconsolata:wght@400;600&amp;family=Lato:wght@300;400;700&amp;family=Roboto:wght@300;400;500&amp;display=swap');
+
+        :root {
+          --e-global-typography-primary-font-family: "Inconsolata", monospace;
+          --e-global-typography-secondary-font-family: "Cormorant Garamond", serif;
+          --e-global-typography-text-font-family: "Roboto", sans-serif;
+          --e-global-typography-accent-font-family: "Roboto", sans-serif;
+          --e-global-typography-3479043-font-family: "Lato", sans-serif;
+          
+          --color-navy: #051930;
+          --color-gold: #c3a372;
+          --color-light: #f5f4f0;
+          --color-text: #333333;
+        }
+
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+
+        .showcase-container {
+          width: 100%;
+          height: 100%;
+          background-color: var(--color-navy);
+          border-radius: 12px;
+          overflow: hidden;
+          position: relative;
+          box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+          border: 1px solid rgba(195, 163, 114, 0.4);
+        }
+
+        /* Slider Animation */
+        .slider-wrapper {
+          width: 400%; /* 4 slides */
+          height: 100%;
+          display: flex;
+          animation: slideAnimation 24s infinite;
+        }
+
+        .slide {
+          width: 25%;
+          height: 100%;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+        }
+
+        @keyframes slideAnimation {
+          0%, 20% { transform: translateX(0); }
+          25%, 45% { transform: translateX(-25%); }
+          50%, 70% { transform: translateX(-50%); }
+          75%, 95% { transform: translateX(-75%); }
+          100% { transform: translateX(0); }
+        }
+
+        /* --- Slide 1: Welcome & Logo --- */
+        .slide-1 {
+          background-color: var(--color-navy);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+        }
+
+        .logo-container {
+          position: relative;
+          margin-bottom: 30px;
+        }
+        
+        .logo-q {
+          font-family: var(--e-global-typography-secondary-font-family);
+          font-size: 140px;
+          color: transparent;
+          -webkit-text-stroke: 2px var(--color-gold);
+          font-style: italic;
+          position: relative;
+        }
+        
+        .logo-q::after {
+          content: 'Q';
+          position: absolute;
+          left: 0; top: 0;
+          color: var(--color-gold);
+          clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+        }
+
+        .logo-crown {
+          position: absolute;
+          top: 30px;
+          left: 50%;
+          transform: translateX(-50%);
+          font-size: 30px;
+          color: var(--color-gold);
+        }
+
+        .slide-1 h1 {
+          font-family: var(--e-global-typography-secondary-font-family);
+          color: var(--color-gold);
+          font-size: 52px;
+          letter-spacing: 6px;
+          text-transform: uppercase;
+          margin-bottom: 15px;
+        }
+
+        .slide-1 h2 {
+          font-family: var(--e-global-typography-3479043-font-family);
+          color: var(--color-light);
+          font-size: 18px;
+          font-weight: 300;
+          letter-spacing: 4px;
+        }
+
+        /* --- Slide 2: The Architecture --- */
+        .slide-2 {
+          background-color: var(--color-light);
+          color: var(--color-navy);
+          padding: 60px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 40px;
+        }
+        
+        .s2-content {
+          flex: 1;
+        }
+        
+        .s2-content h2 {
+          font-family: var(--e-global-typography-secondary-font-family);
+          font-size: 42px;
+          color: var(--color-navy);
+          margin-bottom: 20px;
+        }
+
+        .s2-content p {
+          font-family: var(--e-global-typography-text-font-family);
+          font-size: 16px;
+          line-height: 1.8;
+          color: var(--color-text);
+          margin-bottom: 25px;
+        }
+
+        .code-block {
+          flex: 1;
+          background-color: var(--color-navy);
+          border-radius: 8px;
+          padding: 25px;
+          box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+          position: relative;
+        }
+
+        .code-block::before {
+          content: 'CalendarAPI.php';
+          position: absolute;
+          top: -12px;
+          left: 20px;
+          background: var(--color-gold);
+          color: var(--color-navy);
+          padding: 4px 12px;
+          border-radius: 4px;
+          font-family: var(--e-global-typography-3479043-font-family);
+          font-size: 12px;
+          font-weight: bold;
+        }
+
+        .code-line {
+          font-family: var(--e-global-typography-primary-font-family);
+          font-size: 14px;
+          color: #a3b8cc;
+          margin-bottom: 8px;
+          display: flex;
+        }
+        
+        .code-line .num { color: #5a738e; margin-right: 15px; width: 20px; text-align: right; }
+        .code-line .kw { color: #c3a372; }
+        .code-line .str { color: #88c0d0; }
+        .code-line .fn { color: #81a1c1; }
+
+        /* --- Slide 3: Dynamic Calendar --- */
+        .slide-3 {
+          background-color: var(--color-navy);
+          padding: 60px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        .slide-3 h2 {
+          font-family: var(--e-global-typography-secondary-font-family);
+          font-size: 42px;
+          color: var(--color-gold);
+          margin-bottom: 15px;
+        }
+        
+        .slide-3 p {
+          font-family: var(--e-global-typography-3479043-font-family);
+          color: #a3b8cc;
+          font-size: 16px;
+          margin-bottom: 40px;
+          text-align: center;
+          max-width: 600px;
+        }
+
+        .cal-showcase {
+          background: var(--color-light);
+          width: 100%;
+          max-width: 800px;
+          border-radius: 8px;
+          padding: 30px;
+          display: flex;
+          flex-direction: column;
+        }
+        
+        .cal-legend {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          margin-bottom: 20px;
+          font-family: var(--e-global-typography-text-font-family);
+          font-size: 14px;
+        }
+        
+        .leg-item { display: flex; align-items: center; gap: 8px; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .d-bk { background: #d32f2f; }
+        .d-fet { background: #00897b; }
+        .d-bod { background: #5e35b1; }
+        .d-goc { background: #1565c0; }
+
+        .cal-row {
+          display: flex;
+          gap: 5px;
+          margin-bottom: 5px;
+          height: 40px;
+        }
+        
+        .cal-cell {
+          flex: 1;
+          background: #e0e0e0;
+          border-radius: 4px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: var(--e-global-typography-3479043-font-family);
+          font-size: 13px;
+          font-weight: bold;
+          color: white;
+        }
+
+        .cal-cell.empty { background: #f0f0f0; color: #aaa; }
+
+        /* --- Slide 4: PDF Catalog --- */
+        .slide-4 {
+          background-color: var(--color-light);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding: 60px;
+        }
+        
+        .pdf-icon {
+          width: 80px;
+          height: 100px;
+          background: #e53935;
+          border-radius: 8px;
+          position: relative;
+          margin-bottom: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-family: var(--e-global-typography-primary-font-family);
+          font-size: 24px;
+          font-weight: bold;
+          box-shadow: 0 10px 20px rgba(229,57,53,0.3);
+        }
+        
+        .pdf-icon::before {
+          content: '';
+          position: absolute;
+          top: 0; right: 0;
+          border-width: 0 24px 24px 0;
+          border-style: solid;
+          border-color: #f5f4f0 #f5f4f0 #b71c1c #b71c1c;
+          border-radius: 0 8px 0 0;
+        }
+
+        .slide-4 h2 {
+          font-family: var(--e-global-typography-secondary-font-family);
+          font-size: 48px;
+          color: var(--color-navy);
+          margin-bottom: 15px;
+        }
+        
+        .slide-4 p {
+          font-family: var(--e-global-typography-text-font-family);
+          font-size: 18px;
+          color: var(--color-text);
+          max-width: 600px;
+          line-height: 1.6;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: 4px;
+          background: var(--color-gold);
+          animation: progressAnim 24s infinite linear;
+        }
+
+        @keyframes progressAnim {
+          0% { width: 0%; }
+          100% { width: 100%; }
+        }
+
+      </style>
+      
+      <div class="showcase-container">
+        <div class="slider-wrapper">
+          
+          <!-- Slide 1 -->
+          <div class="slide slide-1">
+            <div class="logo-container">
+              <div class="logo-crown">♚</div>
+              <div class="logo-q">Q</div>
+            </div>
+            <h1>Queen Atlantis</h1>
+            <h2>ROYALTY OF THE SEAS</h2>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="slide slide-2">
+            <div class="s2-content">
+              <h2>Engineering Luxury</h2>
+              <p>As a developer, the challenge was to blend high-end aesthetics with seamless functionality. Using <strong>Elementor</strong> for pixel-perfect design and injecting custom logic for a flawless user experience.</p>
+              <p>The standout feature is the bespoke integration with the <strong>Google Calendar API</strong>, transforming a static WordPress site into a dynamic, real-time booking engine that requires zero manual updates from the client.</p>
+            </div>
+            <div class="code-block">
+              <div class="code-line"><span class="num">1</span><span class="kw">function</span> <span class="fn">fetch_calendar_events</span>() {</div>
+              <div class="code-line"><span class="num">2</span>&nbsp;&nbsp;<span class="kw">$api_url</span> = <span class="str">'https://www.googleapis.com/calendar...'</span>;</div>
+              <div class="code-line"><span class="num">3</span>&nbsp;&nbsp;<span class="kw">$response</span> = <span class="fn">wp_remote_get</span>(<span class="kw">$api_url</span>);</div>
+              <div class="code-line"><span class="num">4</span>&nbsp;&nbsp;<span class="kw">$events</span> = <span class="fn">json_decode</span>(<span class="fn">wp_remote_retrieve_body</span>(<span class="kw">$response</span>));</div>
+              <div class="code-line"><span class="num">5</span>&nbsp;&nbsp;</div>
+              <div class="code-line"><span class="num">6</span>&nbsp;&nbsp;<span class="kw">foreach</span> (<span class="kw">$events</span> as <span class="kw">$event</span>) {</div>
+              <div class="code-line"><span class="num">7</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">$color</span> = <span class="fn">parse_location_tag</span>(<span class="kw">$event</span>-&gt;summary);</div>
+              <div class="code-line"><span class="num">8</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">render_calendar_node</span>(<span class="kw">$event</span>-&gt;start, <span class="kw">$color</span>);</div>
+              <div class="code-line"><span class="num">9</span>&nbsp;&nbsp;}</div>
+              <div class="code-line"><span class="num">10</span>}</div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="slide slide-3">
+            <h2>Dynamic Availability Sync</h2>
+            <p>Keywords like "Fet.", "Bod.", and "Göc." are parsed in real-time, instantly rendering the interactive calendar with specific destination colors.</p>
+            
+            <div class="cal-showcase">
+              <div class="cal-legend">
+                <div class="leg-item"><div class="dot d-bk"></div>Booked</div>
+                <div class="leg-item"><div class="dot d-fet"></div>Fethiye</div>
+                <div class="leg-item"><div class="dot d-bod"></div>Bodrum</div>
+                <div class="leg-item"><div class="dot d-goc"></div>Göcek</div>
+              </div>
+              <div class="cal-row">
+                <div class="cal-cell empty">1</div>
+                <div class="cal-cell empty">2</div>
+                <div class="cal-cell d-fet">3 Fet.</div>
+                <div class="cal-cell d-fet">4 Fet.</div>
+                <div class="cal-cell d-fet">5 Fet.</div>
+                <div class="cal-cell d-bk">6 Bk.</div>
+                <div class="cal-cell d-bk">7 Bk.</div>
+              </div>
+              <div class="cal-row">
+                <div class="cal-cell d-bk">8 Bk.</div>
+                <div class="cal-cell empty">9</div>
+                <div class="cal-cell empty">10</div>
+                <div class="cal-cell d-bod">11 Bod.</div>
+                <div class="cal-cell d-bod">12 Bod.</div>
+                <div class="cal-cell d-bod">13 Bod.</div>
+                <div class="cal-cell d-bod">14 Bod.</div>
+              </div>
+              <div class="cal-row">
+                <div class="cal-cell empty">15</div>
+                <div class="cal-cell empty">16</div>
+                <div class="cal-cell d-goc">17 Göc.</div>
+                <div class="cal-cell d-goc">18 Göc.</div>
+                <div class="cal-cell d-goc">19 Göc.</div>
+                <div class="cal-cell d-goc">20 Göc.</div>
+                <div class="cal-cell d-bk">21 Bk.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="slide slide-4">
+            <div class="pdf-icon">PDF</div>
+            <h2>The Digital Catalog</h2>
+            <p>Beyond the web platform, a comprehensive digital catalog (`eng_queenatlantis_last.pdf`) was designed to encapsulate the luxurious experience. This project demonstrates full-stack capability: from backend API syncing and Elementor frontend execution to premium digital asset design.</p>
+          </div>
+
+        </div>
+        <div class="progress-bar"></div>
+      </div>
+    </div>
+  </foreignObject>
+</svg>
